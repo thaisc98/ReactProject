@@ -9,7 +9,7 @@ var app = {
     subtitle: 'Guitars',
     nameType: 'Tipos',
     type: 'Cuerda corta',
-    type2: 'Cuerda larga'
+    type3: 'Cuerda larga'
 };
 
 var template = ( 
@@ -20,7 +20,7 @@ var template = (
         <ol>
             <li>{app.type}</li>
             <li>{app.type2}</li>
-            <li>{app.type2 + ' + ' +app.type2}</li>
+            <li>{app.type2 + ' + ' +app.type3}</li>
         </ol>
 </div>
 );
