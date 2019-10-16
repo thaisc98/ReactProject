@@ -31,6 +31,7 @@ var template = (
 var userName = 'Mike';
 var userAge = 27;
 var userLocation = 'Santo Domingo';
+var toyjarta = 'Jarta';
 
 var user = {
     name: 'Andrew',
