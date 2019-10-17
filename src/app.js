@@ -1,4 +1,4 @@
-console.log('dkjasldjaskl');
+console.log('sdsadsadsa');
 
 // JSX - JavaScript XML
 //syntanxs extension( injection of data  in those templates)
@@ -7,56 +7,59 @@ const app = {
     title: 'The musitionns',
     subtitle: 'Guitars',
     nameType: 'Tipos',
-    type: 'sads',
-    type2: '2dsad',
-    option: ['One','Two']
+    options: []
 };
 
-const template = ( 
-    <div>
-        <h1>{app.title}</h1>
-        {app.subtitle && <p>{app.subtitle}</p>}
-        <h3>{app.option.length > 0 ? 'Here are your options: ' : 'No options'}</h3>
-        <ol>
-            <li>{app.type}</li>
-            <li>{app.type2}</li>
-        </ol>
-</div>
-);
+const onFormSubmit = (e) => {
+    e.preventDefault();
 
+    const option = e.target.elements.option.value;
 
-//create a new template var jsx espression
-//div -> h1 -[name] ->p tag Age:21 -> p Location: SD render template2 insted of template
-const userName = 'Mike';
-const userAge = 27;
-const userLocation = 'Santo Domingo';
+    if(option){
+        app.options.push(option);
+        e.target.elements.option.value = '';
+        renderTemplateApp();
+    }
 
-
-const user = {
-    name: 'Andrew',
-    age: 26,
-    location: 'New York'
 };
 
-function getLocation(location){
+const resetAll = () => {
+    app.options = [];
+    renderTemplateApp();
+ };
 
-    //const lolo = location ? location : 'Unknown';
-    if(location){
-        return  <p>Location: {location}</p>;
-    }                           
-    
-}
+const onMakeDecision = () => {
+    const randomNum = Math.floor(Math.random() * app.options.length);
+    const option = app.options[randomNum];
+    alert(option);
+};
 
-const templatetwo = (
+const appRoot = document.getElementById('app');   
+
+
+const renderTemplateApp = () => {
+    const template = ( 
         <div>
-            <h1>{user.name}</h1>
-            <p>Age: {user.age}</p>
-            {getLocation(user.location)}
+            <h1>{app.title}</h1>
+                {app.subtitle && <p>{app.subtitle}</p>}
+            <h3>{app.options.length > 0 ? 'Here are your options: ' : 'No options'}</h3>
+            <p>{app.options.length}</p>
+            <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
+            <button onClick={resetAll}>Remove All</button>
+                <ol>
+                    {
+                      app.options.map((opt)=> <li key={opt}> {opt}</li>)
+                    }
+                </ol>
+            <form onSubmit={onFormSubmit}>
+                <input type="text" name="option"/>
+                <button>Add Option</button>
+             </form>
         </div>
-);
- 
+    );
+    
+    ReactDOM.render(template,appRoot);
+};
 
+ renderTemplateApp();
 
-const appRoot = document.getElementById('app');
-                     
-ReactDOM.render(template, appRoot);

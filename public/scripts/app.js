@@ -1,43 +1,101 @@
 'use strict';
 
-var add = function add(a, b) {
-    //   console.log(arguments);
-    return a + b;
+console.log('sdsadsadsa');
+
+// JSX - JavaScript XML
+//syntanxs extension( injection of data  in those templates)
+
+var app = {
+    title: 'The musitionns',
+    subtitle: 'Guitars',
+    nameType: 'Tipos',
+    options: []
 };
-console.log(add(55, 1));
-var user = {
-    name: 'Andrew',
-    cities: ['Pholadelphia', 'New York', 'Dublin'],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
 
-        // const that = this;
-        this.cities.map(function (city) {
-            return _this.name + 'has lived in' + city;
-        });
+var onFormSubmit = function onFormSubmit(e) {
+    e.preventDefault();
 
-        // this.cities.forEach((city) =>{
-        //     console.log(this.name + ' has lived in ' + city);
-        // });
+    var option = e.target.elements.option.value;
+
+    if (option) {
+        app.options.push(option);
+        e.target.elements.option.value = '';
+        renderTemplateApp();
     }
 };
-console.log(user.printPlacesLived());
 
-var multiplier = {
-    numbers: [1, 2, 3],
-    multiplyBy: 5,
-
-    multiply: function multiply() {
-        var _this2 = this;
-
-        return this.numbers.map(function (x) {
-            return x * _this2.multiplyBy;
-        });
-    }
-    // multiply: function(){
-    //     this.numbers.map((x) => this.multiplyBy * this.x);
-    // }
-
+var resetAll = function resetAll() {
+    app.options = [];
+    renderTemplateApp();
 };
 
-console.log(multiplier.multiply());
+var onMakeDecision = function onMakeDecision() {
+    var randomNum = Math.floor(Math.random() * app.options.length);
+    var option = app.options[randomNum];
+    alert(option);
+};
+
+var appRoot = document.getElementById('app');
+
+var renderTemplateApp = function renderTemplateApp() {
+    var template = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            null,
+            app.title
+        ),
+        app.subtitle && React.createElement(
+            'p',
+            null,
+            app.subtitle
+        ),
+        React.createElement(
+            'h3',
+            null,
+            app.options.length > 0 ? 'Here are your options: ' : 'No options'
+        ),
+        React.createElement(
+            'p',
+            null,
+            app.options.length
+        ),
+        React.createElement(
+            'button',
+            { disabled: app.options.length === 0, onClick: onMakeDecision },
+            'What should I do?'
+        ),
+        React.createElement(
+            'button',
+            { onClick: resetAll },
+            'Remove All'
+        ),
+        React.createElement(
+            'ol',
+            null,
+            app.options.map(function (opt) {
+                return React.createElement(
+                    'li',
+                    { key: opt },
+                    ' ',
+                    opt
+                );
+            })
+        ),
+        React.createElement(
+            'form',
+            { onSubmit: onFormSubmit },
+            React.createElement('input', { type: 'text', name: 'option' }),
+            React.createElement(
+                'button',
+                null,
+                'Add Option'
+            )
+        )
+    );
+
+    ReactDOM.render(template, appRoot);
+};
+
+renderTemplateApp();
