@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var nameVar = 'Andrew';
 
 var nameVar = 'Mike';
@@ -18,3 +19,21 @@ function getPetName(){
 
 getPetName();
 console.log(petName);
+=======
+
+
+//Block scoping
+
+var fullName  = 'Jen Mead';
+
+
+let firstName;
+
+
+if(fullName){
+    firstName = fullName.split(' ')[0];
+    console.log(firstName);
+}
+
+console.log(firstName);
+>>>>>>> 36dd3aa58d69483066491b76238d840c1b98662c
