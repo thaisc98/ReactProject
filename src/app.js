@@ -1,4 +1,4 @@
-console.log('dkjasldjaskl');
+console.log('dkjasldjaskasdsal');
 
 
 // JSX - JavaScript XML
@@ -7,20 +7,19 @@ console.log('dkjasldjaskl');
 var app = {
     title: 'The musitionns',
     subtitle: 'Guitars',
-    nameType: 'Tipos',
     type: 'Cuerda corta',
-    type3: 'Cuerda larga'
+    type2: 'Cuerda larga',
+    options: ['One', 'Twoooo']
 };
 
 var template = ( 
     <div>
         <h1>{app.title}</h1>
-        <h2>{app.subtitle}</h2>
-        <h3>{app.nameType}</h3>
+        {app.subtitle && <p>{app.subtitle}</p>}
+        <p>{app.options.length > 0 ? 'Here is your options' : 'no options'}</p>
         <ol>
             <li>{app.type}</li>
             <li>{app.type2}</li>
-            <li>{app.type2 + ' + ' +app.type3}</li>
         </ol>
 </div>
 );
@@ -33,9 +32,9 @@ var userAge = 27;
 var userLocation = 'Santo Domingo';
 var toyjarta = 'Jarta';
 
-var user = {
-    name: 'Andrew',
-    age: 26,
+var user = { 
+    name: 'Thais',
+    age: 21,
     location: 'New York'
 };
 
@@ -47,10 +46,11 @@ function getLocation(location){
     }                           
     
 }
+
 var templatetwo = (
         <div>
-            <h1>{user.name}</h1>
-            <p>Age: {user.age}</p>
+            <h2>{user.name  ? user.name : 'Anonymous'}</h2>
+             {(user.name && user.age >=18) && <p>Age: {user.age}</p>}
             {getLocation(user.location)}
         </div>
 );
@@ -59,4 +59,4 @@ var templatetwo = (
 
 var appRoot = document.getElementById('app');
                      
-ReactDOM.render(templatetwo, appRoot);
+ReactDOM.render(template, appRoot);
