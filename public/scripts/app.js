@@ -1,26 +1,5 @@
 'use strict';
 
-<<<<<<< HEAD
-var nameVar = 'Andrew';
-
-var nameVar = 'Mike';
-console.log('nameVar', nameVar);
-
-var nameLet = 'Jen';
-nameLet = 'Julie';
-console.log('nameLet', nameLet);
-
-var nameConst = 'franki';
-console.log('nameConst', nameConst);
-
-function getPetName() {
-    var petName = 'Hal';
-    return petName;
-}
-
-getPetName();
-console.log(petName);
-=======
 var add = function add(a, b) {
     //   console.log(arguments);
     return a + b;
@@ -62,4 +41,3 @@ var multiplier = {
 };
 
 console.log(multiplier.multiply());
->>>>>>> 36dd3aa58d69483066491b76238d840c1b98662c
