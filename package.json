@@ -9,14 +9,8 @@
   "author": "Thais Contreras",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "babel-preset-env": "1.5.2",
-    "babel-preset-react": "6.24.1",
-    "live-server": "^1.2.1"
-=======
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "yarn": "^1.19.1"
->>>>>>> 36dd3aa58d69483066491b76238d840c1b98662c
   }
 }
