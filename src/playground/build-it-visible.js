@@ -9,7 +9,7 @@ class VisibilityToggle extends React.Component{
     }
 
     toggleVsibility(){
-        this.state.\\
+        this.state
     }
 
     render() { 
