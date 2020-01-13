@@ -10,7 +10,7 @@ class IndecisionApp extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount() { 
     try {
       const json = localStorage.getItem("options");
       const options = JSON.parse(json);
